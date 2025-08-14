@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts.apps.AccountsConfig',  # Custom app for user accounts
+    'rest_framework',  # Django REST Framework for API development
 ]
 
 MIDDLEWARE = [
@@ -74,8 +76,12 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',  # Use PostgreSQL as the database engine
+        'NAME': 'blog_api_db',  # Name of the database
+        'USER': 'atiq',  # Database user
+        'PASSWORD': 'atiq12345',  # Database password
+        'HOST': 'localhost',  # Database host
+        'PORT': 5432,  # Database port
     }
 }
 
@@ -120,3 +126,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'accounts.CustomUser'  # Set the custom user model
