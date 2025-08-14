@@ -42,6 +42,12 @@ INSTALLED_APPS = [
     'posts.apps.PostsConfig',  # Custom app for blog posts
 ]
 
+REST_FRAMEWORK = { # new
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.AllowAny",
+    ],
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
