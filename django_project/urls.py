@@ -20,4 +20,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include('posts.urls')),  # Include URLs from the posts app
+    path('api-auth/', include('rest_framework.urls')),  # Include DRF authentication URLs
 ]
